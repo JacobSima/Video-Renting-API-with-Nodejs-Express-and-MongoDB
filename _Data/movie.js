@@ -1,0 +1,65 @@
+[
+  {
+      "_id": "5de6969f9978f647408c2311",
+      "title": "les ange adorables",
+      "genre": "5de6896e25273357746d77aa",
+      "dailyRentalRate": 30,
+      "numberInStock": 100,
+  },
+  {
+      "_id": "5de6976389c0ee08b47c4c01",
+      "title": "The Fight in the Jungle",
+      "genre": "5de687dde2b6104a186ec477",
+      "dailyRentalRate": 35,
+      "numberInStock": 70,
+  },
+  {
+      "_id": "5de6990b354b335e8c7977d0",
+      "title": "From first sight",
+      "genre": "5de6881be2b6104a186ec478",
+      "dailyRentalRate": 42,
+      "numberInStock": 123,
+  },
+  {
+      "_id": "5de69b6504feaa5220999363",
+      "title": "En route to paris",
+      "genre": "5de6881be2b6104a186ec478",
+      "dailyRentalRate": 93,
+      "numberInStock": 14,
+  },
+  {
+      "_id": "5de69ba704feaa5220999364",
+      "title": "Family wendy house",
+      "genre": "5de689c225273357746d77ac",
+      "dailyRentalRate": 50,
+      "numberInStock": 42,
+  },
+  {
+      "_id": "5de6a2fa2603c45820368883",
+      "title": "Little man",
+      "genre": "5de6896e25273357746d77aa",
+      "dailyRentalRate": 72,
+      "numberInStock": 32,
+  },
+  {
+      "_id": "5de6a3472603c45820368884",
+      "title": "Romeo must die",
+      "genre": "5de687dde2b6104a186ec477",
+      "dailyRentalRate": 250,
+      "numberInStock": 56,
+  },
+  {
+      "_id": "5de6a37b2603c45820368885",
+      "title": "Not gumble",
+      "genre": "5de6881be2b6104a186ec478",
+      "dailyRentalRate": 152,
+      "numberInStock": 31,
+  },
+  {
+      "_id": "5de6a51b2858fd5e88050db9",
+      "title": "I am home",
+      "genre": "5de689c225273357746d77ac",
+      "dailyRentalRate": 152,
+      "numberInStock": 31,
+  }
+]

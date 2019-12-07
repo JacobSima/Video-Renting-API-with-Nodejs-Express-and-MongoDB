@@ -1,0 +1,46 @@
+
+* Models
+  #Customer
+  name
+  membership   -['student','standard','premium','others']  - if student then the rentalFee is -5%,
+                                                           - if standard rentalFee -3%
+                                                           - if others rentalFee normal
+                                                           -if premium rentalFee -15%
+  phone
+  address
+  location    - to be added via middleware from the address provided from the customer
+
+  #Genre
+    name          -required
+    description
+    movies: list of movies to be reverse populate base on the genre _id save on the movie genre type
+
+  #Movie
+    title
+    genre - reference of  genre model   - required
+    numberInStock                       -required  -to be recalculate on RentalOut/In  
+    dailyRentalRate                     -required  
+    description
+
+  #RentalOut
+    customer - reference of customer model
+    movie - reference of movie model
+    dateOut                       - date is out
+    rentalFee                     - to be calculated & created base on customer membership
+    maxTimeOut  
+  #ReturnIn
+    customer - reference of customer model
+    movie - reference of movie model
+    dateIn       
+    fined       - to be calculated base on maxTimeOut
+
+
+
+  #User
+    name
+    email
+    password
+    role = ['customer','user','admin']
+
+
+
