@@ -15,7 +15,8 @@ const genreSchema = new Schema({
     minlength:5,
     maxlength:1024,
     required:[true,'Please add some description']
-  }
+  },
+  location:String
 
 },{
   toJSON:{virtuals:true},toObject:{virtuals:true}
