@@ -21,8 +21,8 @@ const movieSchema = new Schema({
   dailyRentalRate:{
     type:Number,
     required:[true,'Please add daily rental']
-  }
-
+  },
+  location:String
 
 })
 
