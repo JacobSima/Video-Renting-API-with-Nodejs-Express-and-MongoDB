@@ -24,7 +24,7 @@ exports.getGenre = asyncHandler(async(req,res,next)=>{
 
     const genre = await Genre.findById(req.params.id).populate('movies')
 
-    if(!genre){return next(new errorResponse(`Genre with the id of ${req.params.id} was not found`,401))}
+    if(!genre){return next(new errorResponse(`Genre with the id of ${req.params.id} was not found`,400))}
 
     res.status(200).json({success:true,data:genre})
   
