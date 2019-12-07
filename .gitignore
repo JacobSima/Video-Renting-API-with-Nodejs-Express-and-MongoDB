@@ -105,3 +105,4 @@ dist
 
 # custom ignore
 config/config.env
+package-lock.json
