@@ -34,6 +34,8 @@ const server = function(){
   app.use('/api/v1/movies',movies)
   app.use('/api/v1/customers',customers)
 
+  // require('./utils/geocoder')()
+
 
   // Express Error Middleware
   app.use(error)

@@ -48,14 +48,19 @@ exports.updateCustomer = asyncHandler( async(req,res,next)=>{
   if(!mongoose.Types.ObjectId.isValid(req.params.id)){
     return next(new errorResponse(`${req.params.id} is not a value id`,400))
   }
-  
-  const customer = await Customer.findByIdAndUpdate(req.params.id,req.body,{
-    new:true,runValidators:true
-  })
+
+  const newRequest = {...req.body}
+  const removedFields = ['address']
+  removedFields.forEach(param=> delete newRequest[param])
+
+  let customer = await Customer.findByIdAndUpdate(req.params.id,req.body,{new:true,runValidators:true})
 
   if(!customer){
     return next (new errorResponse(`Not customer found with the id of: ${req.params.id}`,400))
   }
+
+  // call save middleware to update the location from the geocode  function
+  customer = await customer.save()
 
   res.status(200).json({succes:true,data:customer})
 })

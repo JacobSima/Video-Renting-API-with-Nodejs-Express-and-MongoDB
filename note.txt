@@ -6,6 +6,7 @@
                                                            - if standard rentalFee -3%
                                                            -if premium rentalFee -15%
   phone
+  email
   address
   location    - to be added via middleware from the address provided from the customer
 
