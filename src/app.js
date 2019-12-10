@@ -11,6 +11,7 @@ const server = function(){
   // load routes
   const genres = require('./routes/genre')
   const movies = require('./routes/movie')
+  const customers = require('./routes/customer')
   
 
   // Connect to DB
@@ -31,6 +32,7 @@ const server = function(){
   // Use Routes
   app.use('/api/v1/genres',genres)
   app.use('/api/v1/movies',movies)
+  app.use('/api/v1/customers',customers)
 
 
   // Express Error Middleware
