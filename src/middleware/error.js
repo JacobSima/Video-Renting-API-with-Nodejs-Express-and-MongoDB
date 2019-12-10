@@ -1,6 +1,6 @@
 function error (error,req,res,next){
 
-  // console.log(error)
+ 
 
   // Deal with Mongoose Validation Error
   if(error.name === 'ValidationError'){
@@ -9,7 +9,7 @@ function error (error,req,res,next){
   }
 
   if(error.code === 11000){
-    return res.status(400).json({success:false,error:'Duplicated key entered...'})
+    return res.status(400).json({success:false,error:`${error.message};Duplicated key entered...,`})
   }
   
 

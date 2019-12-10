@@ -2,9 +2,8 @@
 * Models
   #Customer
   name
-  membership   -['student','standard','premium','others']  - if student then the rentalFee is -5%,
+  membership   -['student','standard','premium']  - if student then the rentalFee is -5%,
                                                            - if standard rentalFee -3%
-                                                           - if others rentalFee normal
                                                            -if premium rentalFee -15%
   phone
   address
