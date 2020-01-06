@@ -7,7 +7,8 @@ const movieSchema = new Schema({
     type:String,
     minlength:3,
     maxlength:1024,
-    trim:true
+    trim:true,
+    unique:true
   },
   genre:{
     type:mongoose.Schema.ObjectId,

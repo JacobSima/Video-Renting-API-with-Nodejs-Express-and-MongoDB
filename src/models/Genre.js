@@ -16,11 +16,16 @@ const genreSchema = new Schema({
     maxlength:1024,
     required:[true,'Please add some description']
   },
+  
 
 },{
   toJSON:{virtuals:true},toObject:{virtuals:true}
 })
 
+// genre cascading deletion
+genreSchema.pre('remove',async function(){
+  await this.model('Movie').deleteMany({genre:this._id})
+})
 
 // reverse population of movies list within the genre list
 genreSchema.virtual('movies',{

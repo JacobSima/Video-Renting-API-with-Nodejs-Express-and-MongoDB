@@ -2,6 +2,7 @@ const asyncHandler = require('../utils/asynHandler')
 const errorResponse = require('../utils/errorResponse')
 const Movie = require('../models/Movie')
 const mongoose = require('mongoose')
+const Genre = require('../models/Genre')
 
 
 //@ desc    Get all movies
@@ -77,6 +78,10 @@ exports.createMovie = asyncHandler(async(req,res,next)=>{
   if(!mongoose.Types.ObjectId.isValid(req.body.genre)){
     return next(new errorResponse(`${req.body.genre} is not a valid Object Id`,400))
   }
+
+  // check if the genre is in the DB
+  const genre = await Genre.findById(req.body.genre) 
+  if(!genre){return  next(new errorResponse(`Unable to create movie of the genre with id of: ${req.body.genre}; genre does not exist`,400))}
 
   const movie = await Movie.create(req.body)
   res.status(200).json({sucess:true,data:movie})

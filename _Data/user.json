@@ -1,0 +1,48 @@
+[
+  {
+    "role": "customer",
+    "_id": "5e12ef50d1b0ea42292d69a7",
+    "name": "jacob",
+    "email": "jacob@gmail.com",
+    "customer": "5e10d7e467b42ce93b8afec2",
+    "password":"123456"
+  },
+  {
+    "role": "admin",
+    "_id": "5e12f076109d9d3205c1f672",
+    "name": "cons",
+    "email": "cons@gmail.com",
+    "password":"123456"
+  },
+  {
+    "role": "staff",
+    "_id": "5e12f0b8109d9d3205c1f673",
+    "name": "stella",
+    "email": "stella@gmail.com",
+    "password":"123456"
+  },
+  {
+    "role": "customer",
+    "_id": "5e12f0fd109d9d3205c1f674",
+    "name": "bene",
+    "email": "bene@gmail.com",
+    "password":"123456"
+  },
+  {
+    "role": "customer",
+    "_id": "5e12f142109d9d3205c1f675",
+    "name": "jeancy",
+    "email": "jeancy@gmail.com",
+    "customer": "5e10d73667b42ce93b8afec0",
+    "password":"123456"
+   },
+   {
+    "role": "customer",
+    "_id": "5e12f2ad839e125d612ee691",
+    "name": "henry",
+    "email": "henry@gmail.com",
+    "customer": "5e10d88a67b42ce93b8afec4",
+    "password":"123456"
+    }
+
+]

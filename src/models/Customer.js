@@ -55,7 +55,7 @@ const customerSchema =  new Schema({
 })
 
 // geolocation of customer using mongoose middleware
-customerSchema.pre('save',async function(){
+  customerSchema.pre('save',async function(){
   const loc = await geocoder.geocode(this.address)
   this.location = {
   type:'Point',
@@ -68,8 +68,18 @@ customerSchema.pre('save',async function(){
   streetNumber : loc[0].streetNumber,
   streetName : loc[0].streetName
  }
- // set address to undefined since we have already the fomatted address 
- this.address = undefined
+
+ if(this.email){
+  await this.model('User').findOneAndUpdate({customer:this._id},{$set:{email:this.email}},{runValidators:true})
+ }
+ 
+})
+
+
+
+// cascade remove of user if the customer is deleted in the system as some customer can have user account then their info is link
+customerSchema.pre('remove',async function(){
+  await this.model('User').deleteMany({customer:this._id})
 })
 
 

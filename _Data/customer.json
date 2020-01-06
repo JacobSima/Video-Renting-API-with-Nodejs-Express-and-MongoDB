@@ -1,0 +1,43 @@
+[
+  {
+      "membership": "premium",
+      "_id": "5e10d73667b42ce93b8afec0",
+      "name": "jeancy",
+      "phone": "924-8372-7362",
+      "email": "jeancy@gmail.com",
+      "address": "5 beulah road summerpride east london south africa"
+  },
+  {
+      "membership": "standard",
+      "_id": "5e10d7e467b42ce93b8afec2",
+      "name": "jacob",
+      "phone": "093-922-9382",
+      "email": "jacob@gmail.com",
+      "address": "199 voortrekker road summerpride east london eastern cape south africa"
+  },
+  {
+      "membership": "premium",
+      "_id": "5e10d84b67b42ce93b8afec3",
+      "name": "billy",
+      "phone": "372-393-9392",
+      "email": "billy@gmail.com",
+      "address": "32 caledon street goodwood cape town western cape south africa"
+  },
+  {
+      "membership": "student",
+      "_id": "5e10d88a67b42ce93b8afec4",
+      "name": "henry",
+      "phone": "933-298-0928",
+      "email": "henry@gmail.com",
+      "address": "5 kruger street bellville cape town western cape south africa"
+  },
+  {
+
+      "membership": "student",
+      "_id": "5e10d8d367b42ce93b8afec5",
+      "name": "Tom",
+      "phone": "933-298-0928",
+      "email": "tom@gmail.com",
+      "address": "4 thompson road summerpride east london, eastern cape south africa"
+  }
+]

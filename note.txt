@@ -1,19 +1,11 @@
 
 * Models
-  #Customer
-  name
-  membership   -['student','standard','premium']  - if student then the rentalFee is -5%,
-                                                           - if standard rentalFee -3%
-                                                           -if premium rentalFee -15%
-  phone
-  email
-  address
-  location    - to be added via middleware from the address provided from the customer
-
   #Genre
     name          -required
     description
-    movies: list of movies to be reverse populate base on the genre _id save on the movie genre type
+    movies: list of movies to be reverse populate base on the genre _id save on the moviegenre type. to mentioned on the Schema only during the reverse population
+
+
 
   #Movie
     title
@@ -22,12 +14,29 @@
     dailyRentalRate                     -required  
     description
 
+
+  #Customer
+  name
+  membership   -['student','standard','premium']  - if student then the rentalFee is -5%,
+                                                           - if standard rentalFee -3%
+                                                           -if premium rentalFee -15%
+  phone
+  email      - email link with the user if the same customer is registered as user
+  address
+  location    - to be added via middleware from the address provided from the customer
+
+
+
+
   #RentalOut
     customer - reference of customer model
     movie - reference of movie model
     dateOut                       - date is out
     rentalFee                     - to be calculated & created base on customer membership
     maxTimeOut  
+
+
+
   #ReturnIn
     customer - reference of customer model
     movie - reference of movie model
@@ -36,11 +45,30 @@
 
 
 
+
   #User
     name
     email
     password
-    role = ['customer','user','admin']
+    role = ['customer','staff','admin']
+    customer  - customer id if the login user is registered as customer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

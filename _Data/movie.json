@@ -1,0 +1,58 @@
+[
+    {
+        "_id": "5e10ccaaedc009e2f330a3a6",
+        "title": "Scrap yard",
+        "genre": "5e10c4f8abf9e2e3bea38d74",
+        "dailyRentalRate": 13,
+        "numberInStock": 30
+    },
+    {
+        "_id": "5e10cabea1250fd477a5267c",
+        "title": "Romeo must die",
+        "genre": "5e10c4aaabf9e2e3bea38d72",
+        "dailyRentalRate": 24,
+        "numberInStock": 20
+    },
+    {
+        "_id": "5e10cc61edc009e2f330a3a5",
+        "title": "Gambino",
+        "genre": "5e10c4c8abf9e2e3bea38d73",
+        "dailyRentalRate": 43,
+        "numberInStock": 92
+    },
+    {
+        "_id": "5e10cb9fedc009e2f330a3a1",
+        "title": "The 100",
+        "genre": "5e10c4f8abf9e2e3bea38d74",
+        "dailyRentalRate": 70,
+        "numberInStock": 62
+    },
+    {
+        "_id": "5e10cc28edc009e2f330a3a3",
+        "title": "Luna gone",
+        "genre":  "5e10c4aaabf9e2e3bea38d72",
+        "dailyRentalRate": 73,
+        "numberInStock": 62
+    },
+    {
+        "_id": "5e10cce2edc009e2f330a3a7",
+        "title": "Coco na chanel",
+        "genre":"5e10c515abf9e2e3bea38d75",
+        "dailyRentalRate": 100,
+        "numberInStock": 49
+    },
+    {
+        "_id": "5e10ca8fa1250fd477a5267b",
+        "title": "Allez -y",
+        "genre": "5e10c4c8abf9e2e3bea38d73",
+        "dailyRentalRate": 152,
+        "numberInStock": 31
+    },
+    {
+        "_id": "5e10cbccedc009e2f330a3a2",
+        "title": "The winter time",
+        "genre": "5e10c515abf9e2e3bea38d75",
+        "dailyRentalRate": 200,
+        "numberInStock": 10
+    }
+]

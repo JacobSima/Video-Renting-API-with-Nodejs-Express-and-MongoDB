@@ -2,16 +2,18 @@ const express = require('express')
 const router = express.Router()
 const {getGenre,getGenres,createGenre,updateGenre,deleteGenre} = require('../controllers/genre')
 
+const {protect,autorize} = require('../middleware/auth')
+
 router
   .route('/')
   .get(getGenres)
-  .post(createGenre)
+  .post(protect,autorize('staff','admin'),createGenre)
 
 router 
   .route('/:id')
   .get(getGenre)
-  .put(updateGenre)
-  .delete(deleteGenre)
+  .put(protect,autorize('staff','admin'),updateGenre)
+  .delete(protect,autorize('staff','admin'),deleteGenre)
 
 
 

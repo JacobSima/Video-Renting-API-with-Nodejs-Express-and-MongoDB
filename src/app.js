@@ -12,6 +12,8 @@ const server = function(){
   const genres = require('./routes/genre')
   const movies = require('./routes/movie')
   const customers = require('./routes/customer')
+  const users = require('./routes/user')
+  const auth = require('./routes/auth')
   
 
   // Connect to DB
@@ -33,15 +35,15 @@ const server = function(){
   app.use('/api/v1/genres',genres)
   app.use('/api/v1/movies',movies)
   app.use('/api/v1/customers',customers)
-
-  // require('./utils/geocoder')()
+  app.use('/api/v1/auth/users',users)
+  app.use('/api/v1/auth',auth)
 
 
   // Express Error Middleware
   app.use(error)
 
   const PORT = process.env.PORT || 4001
-  app.listen(PORT,console.log(`Server started on Port: ${PORT}`.cyan))
+  const listenApp =  app.listen(PORT,console.log(`Server started on Port: ${PORT}`.cyan))
   
   // Exit the program in case of uncaughtException or unhandledRejection
   process.on('uncaughtException',(reason,promise)=>{
@@ -55,6 +57,27 @@ const server = function(){
   })
 
 }
+
+// ********************************* Socket IO Code ****************************
+
+
+
+
+
+// ********************************* Socket IO Code ****************************
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = server
 
 

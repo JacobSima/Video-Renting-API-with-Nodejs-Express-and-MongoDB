@@ -74,11 +74,13 @@ exports.deleteCustomer = asyncHandler(async(req,res,next)=>{
     return next(new errorResponse(`${req.params.id} is not a value id`,400))
   }
   
-  const customer = await Customer.findByIdAndDelete(req.params.id)
+  const customer = await Customer.findById(req.params.id)
 
   if(!customer){
     return next (new errorResponse(`Not customer found with the id of: ${req.params.id}`,400))
   }
+
+  customer.remove()
 
   res.status(200).json({succes:true,data:{}})
 })

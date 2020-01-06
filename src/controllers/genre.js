@@ -64,7 +64,8 @@ exports.deleteGenre = asyncHandler(async(req,res,next)=>{
 
     if(!mongoose.Types.ObjectId.isValid(req.params.id)) {return next(new errorResponse(` ${req.params.id} is not a valid objectId`,400))}
 
-    await Genre.findByIdAndDelete(req.params.id)
+   const genre =  await Genre.findById(req.params.id)
+   genre.remove()
 
     res.status(200).json({success:true,data:{}})
 })    
