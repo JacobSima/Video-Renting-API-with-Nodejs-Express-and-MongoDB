@@ -8,7 +8,8 @@ const movieSchema = new Schema({
     minlength:3,
     maxlength:1024,
     trim:true,
-    unique:true
+    unique:true,
+    required:[true,'Please provide movie title']
   },
   genre:{
     type:mongoose.Schema.ObjectId,
@@ -24,7 +25,7 @@ const movieSchema = new Schema({
     required:[true,'Please add daily rental']
   }
 
-})
+},{timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }})
 
 
 

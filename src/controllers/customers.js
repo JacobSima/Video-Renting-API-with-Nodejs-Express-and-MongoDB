@@ -2,6 +2,7 @@ const asyncHandler = require('../utils/asynHandler')
 const errorResponse = require('../utils/errorResponse')
 const Customer = require('../models/Customer')
 const mongoose = require('mongoose')
+const {customerCreateValidation,customerUpdateValidation} = require('../validations/customer')
 
 //@ desc    Get all Customers
 //@ route   GET /api/v1/customers
@@ -35,6 +36,10 @@ exports.getCustomer = asyncHandler(async (req,res,next)=>{
 //@ route   POST /api/v1/customers
 //@ access  Private
 exports.createCustomer = asyncHandler(async(req,res,next)=>{
+ // User input Validation
+ const err = await customerCreateValidation(req.body)
+ if(err){return next(new errorResponse(`${err.details[0].message}`,400))}
+
   const customer = await Customer.create(req.body)
   res.status(200).json({success:true,data:customer})
 })
@@ -45,6 +50,10 @@ exports.createCustomer = asyncHandler(async(req,res,next)=>{
 //@ access  Private
 
 exports.updateCustomer = asyncHandler( async(req,res,next)=>{
+  // User input Validation
+  const err = await customerUpdateValidation(req.body)
+  if(err){return next(new errorResponse(`${err.details[0].message}`,400))}
+
   if(!mongoose.Types.ObjectId.isValid(req.params.id)){
     return next(new errorResponse(`${req.params.id} is not a value id`,400))
   }
@@ -59,7 +68,7 @@ exports.updateCustomer = asyncHandler( async(req,res,next)=>{
     return next (new errorResponse(`Not customer found with the id of: ${req.params.id}`,400))
   }
 
-  // call save middleware to update the location from the geocode  function
+  // call save middleware to update the location from the geocode  function and user email 
   customer = await customer.save()
 
   res.status(200).json({succes:true,data:customer})

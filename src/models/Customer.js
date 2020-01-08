@@ -18,8 +18,9 @@ const customerSchema =  new Schema({
   },
   phone:{
     type:String,
-    minlength:2,
-    maxlength:1024
+    minlength:3,
+    maxlength:1024,
+    required:[true,'Please provide a phone number']
   },
   email:{
     type:String,
@@ -30,7 +31,7 @@ const customerSchema =  new Schema({
   },
   address:{
     type:String,
-    minlength:10,
+    minlength:5,
     maxlength:1025,
     required:[true,'Please provide your address']
   },
@@ -52,23 +53,27 @@ const customerSchema =  new Schema({
     streetName : String
 
   }
-})
+},{timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }})
 
 // geolocation of customer using mongoose middleware
   customerSchema.pre('save',async function(){
-  const loc = await geocoder.geocode(this.address)
-  this.location = {
-  type:'Point',
-  coordinates:[loc[0].longitude,loc[0].latitude],
-  formattedAddress: loc[0].formattedAddress,
-  country: loc[0].country,
-  city: loc[0].city,
-  state: loc[0].stateCode,
-  zipcode: loc[0].zipcode,
-  streetNumber : loc[0].streetNumber,
-  streetName : loc[0].streetName
- }
 
+  if(this.address){
+      const loc = await geocoder.geocode(this.address)
+      this.location = {
+      type:'Point',
+      coordinates:[loc[0].longitude,loc[0].latitude],
+      formattedAddress: loc[0].formattedAddress,
+      country: loc[0].country,
+      city: loc[0].city,
+      state: loc[0].stateCode,
+      zipcode: loc[0].zipcode,
+      streetNumber : loc[0].streetNumber,
+      streetName : loc[0].streetName
+     }
+  }
+
+ // update user email too
  if(this.email){
   await this.model('User').findOneAndUpdate({customer:this._id},{$set:{email:this.email}},{runValidators:true})
  }

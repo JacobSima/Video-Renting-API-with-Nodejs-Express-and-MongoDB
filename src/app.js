@@ -3,6 +3,7 @@ const server = function(){
   const express =  require('express')
   const morgan = require('morgan')
   const error = require('./middleware/error')
+  const cors = require('cors')
 
   // config .env
   const dotenv =  require('dotenv')
@@ -22,13 +23,14 @@ const server = function(){
   const app = express()
 
   // Middlewares
+  app.use(cors())
   // morgan for development
   if(process.env.NODE_ENV = 'development'){
     app.use(morgan('dev'))
   }
   // expressjson
   app.use(express.json())
- 
+
 
 
   // Use Routes

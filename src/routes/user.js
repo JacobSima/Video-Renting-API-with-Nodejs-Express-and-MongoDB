@@ -1,13 +1,15 @@
 const express = require('express')
-const router = express.Router({mergeParams:true})
-const {getUser,getUsers,createUser,deleteUser,updateUser } = require('../controllers/user')
+const router = express.Router()
+const {getUser,getUsers,deleteUser,updateUser } = require('../controllers/user')
 
 const {protect,autorize} = require('../middleware/auth')
 
-router.route('/').post(createUser)
+// include re-use user route
+const authRouter = require('./auth')
 
 router.use(protect)
 router.use(autorize('admin'))
+router.use('/register',authRouter)
 
 router 
   .route('/')

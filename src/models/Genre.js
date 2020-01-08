@@ -19,7 +19,8 @@ const genreSchema = new Schema({
   
 
 },{
-  toJSON:{virtuals:true},toObject:{virtuals:true}
+  toJSON:{virtuals:true},toObject:{virtuals:true},
+  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 })
 
 // genre cascading deletion

@@ -3,6 +3,7 @@ const errorResponse = require('../utils/errorResponse')
 const Movie = require('../models/Movie')
 const mongoose = require('mongoose')
 const Genre = require('../models/Genre')
+const {movieCreateValidation,movieUpdateValidation} =  require('../validations/movie')
 
 
 //@ desc    Get all movies
@@ -75,6 +76,11 @@ exports.getMovie = asyncHandler(async(req,res,next)=>{
 //@ access  Private
 exports.createMovie = asyncHandler(async(req,res,next)=>{
 
+   // User input Validation
+   const err = await movieCreateValidation(req.body)
+   if(err){return next(new errorResponse(`${err.details[0].message}`,400))}
+ 
+
   if(!mongoose.Types.ObjectId.isValid(req.body.genre)){
     return next(new errorResponse(`${req.body.genre} is not a valid Object Id`,400))
   }
@@ -94,9 +100,15 @@ exports.createMovie = asyncHandler(async(req,res,next)=>{
 //@ access  Private
 exports.updateMovie = asyncHandler(async(req,res,next)=>{
 
+  // User input Validation
+  const err = await movieUpdateValidation(req.body)
+  if(err){return next(new errorResponse(`${err.details[0].message}`,400))}
+
   if(!mongoose.Types.ObjectId.isValid(req.params.id)){
     return next(new errorResponse(`${req.params.id} is not a valid Object Id`,400))
   }
+  
+
   const movie = await Movie.findByIdAndUpdate(req.params.id,req.body,{new:true,runValidators:true})
 
   if(!movie){

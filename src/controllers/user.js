@@ -2,6 +2,7 @@ const asyncHandler = require('../utils/asynHandler')
 const errorResponse = require('../utils/errorResponse')
 const User = require('../models/User')
 const mongoose = require('mongoose')
+const {userUpdateValidation} = require('../validations/user')
 
 //@ desc    Get all Users
 //@ route   GET /api/v1/auth/users
@@ -33,24 +34,7 @@ exports.getUser =  asyncHandler(async(req,res,next)=>{
 })
 
 
-//@ desc    Create User
-//@ route   POST /api/v1/auth/users
-//@ access  Public
-exports.createUser =  asyncHandler(async(req,res,next)=>{
 
-  // admin role can only be create from database
-  // this is to force the default customer role if admin is supplied
-  let newBody = {...req.body}
-  if(newBody.role === 'admin'){ newBody.role = undefined}
-
-   let user = await User.create(newBody)
-   user = {
-     _id:user._id,
-     role:user.role,
-     name:user.name
-   }
-  res.status(201).json({success:true,data:user})
-})
 
 
 
@@ -59,19 +43,26 @@ exports.createUser =  asyncHandler(async(req,res,next)=>{
 //@ access  Private
 
 exports.updateUser = asyncHandler( async(req,res,next)=>{
+
+  // User input Validation
+  const err = await userUpdateValidation(req.body)
+  if(err){return next(new errorResponse(`${err.details[0].message}`,400))}
+
   if(!mongoose.Types.ObjectId.isValid(req.params.id)){
     return next(new errorResponse(`${req.params.id} is not a value id`,400))
   }
  
-   let user = await User.findById(req.params.id)
+  let user = await User.findByIdAndUpdate(req.params.id,req.body,{new:true,runValidators:true})
 
   if(!user){
     return next (new errorResponse(`Not user found with the id of: ${req.params.id}`,400))
   }
 
-   await User.updateOne({_id:req.params.id},req.body)
-   user = await User.findById(req.params.id)
-   if(user.customer){user.updateCustomerEmail(user.customer,user.email)}
+   if(req.body.password){user.password = req.body.password}
+
+    user = await user.save()
+    
+   if(user.customer){user.updateCustomerEmail(user.customer,user.email,user.name)}
 
   res.status(200).json({succes:true,data:user})
 })
