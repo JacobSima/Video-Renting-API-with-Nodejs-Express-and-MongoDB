@@ -10,7 +10,8 @@
   #Movie
     title
     genre - reference of  genre model   - required
-    numberInStock                       -required  -to be recalculate on RentalOut/In  
+    numberInStock                       -required  -to be recalculate on RentalOut/In
+    numberOutStock                       -default=0       -to be recalculate on RentalOut/In 
     dailyRentalRate                     -required  
     description
 
@@ -18,32 +19,12 @@
   #Customer
   name
   membership   -['student','standard','premium']  - if student then the rentalFee is -5%,
-                                                           - if standard rentalFee -3%
-                                                           -if premium rentalFee -15%
+                                                  - if premium rentalFee -15%
   phone
   email      - email link with the user if the same customer is registered as user
   address
   location    - to be added via middleware from the address provided from the customer
-
-
-
-
-  #RentalOut
-    customer - reference of customer model
-    movie - reference of movie model
-    dateOut                       - date is out
-    rentalFee                     - to be calculated & created base on customer membership
-    maxTimeOut  
-
-
-
-  #ReturnIn
-    customer - reference of customer model
-    movie - reference of movie model
-    dateIn       
-    fined       - to be calculated base on maxTimeOut
-
-
+  takenMovie  -[RentalOut,RentalOut] : Array of rental out movies
 
 
   #User
@@ -53,6 +34,22 @@
     role = ['customer','staff','admin']
     customer  - customer id if the login user is registered as customer
 
+
+#RentalOut
+    customer                      - reference of customer model
+    movie                         - reference of movie model
+    dateOut                       - date is out
+             -rentalFee :
+             - to be calculated & created base on customer membership from front-end
+    dateExpectedIn                - date to return the movie provided from front-end 
+                                  - base on he rentalFee 
+
+
+
+  #ReturnIn
+    RentalOut  - ObjectId
+    dateIn     -date of the return      
+    fined      - to be calculated base on maxTimeOut
 
 
 

@@ -5,7 +5,8 @@ async function customerCreateValidation(obj={}){
      phone:Joi.string().min(3).max(1024).required(),
      address:Joi.string().min(10).max(1024).required(),
      membership:Joi.string().min(1).max(50),
-     email:Joi.string().email().min(5).max(1024).required()
+     email:Joi.string().email().min(5).max(1024).required(),
+     takenMovie:Joi.array().items(Joi.string())
  })
   try {
     await schema.validateAsync(obj);
@@ -21,7 +22,8 @@ async function customerUpdateValidation(obj={}){
      phone:Joi.string().min(3).max(1024),
      address:Joi.string().min(10).max(1024),
      membership:Joi.string().min(1).max(50),
-     email:Joi.string().email().min(5).max(1024)
+     email:Joi.string().email().min(5).max(1024),
+     takenMovie:Joi.array().items(Joi.string())
   })
    try {
      await schema.validateAsync(obj);

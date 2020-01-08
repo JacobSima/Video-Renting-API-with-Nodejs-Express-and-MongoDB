@@ -20,6 +20,10 @@ const movieSchema = new Schema({
     type:Number,
     required:[true,'Please add the number in stock']
   },
+  numberOutStock:{
+    type:Number,
+    default:0
+  },
   dailyRentalRate:{
     type:Number,
     required:[true,'Please add daily rental']

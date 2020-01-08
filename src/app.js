@@ -15,6 +15,7 @@ const server = function(){
   const customers = require('./routes/customer')
   const users = require('./routes/user')
   const auth = require('./routes/auth')
+  const rentalout = require('./routes/rentalout')
   
 
   // Connect to DB
@@ -39,6 +40,7 @@ const server = function(){
   app.use('/api/v1/customers',customers)
   app.use('/api/v1/auth/users',users)
   app.use('/api/v1/auth',auth)
+  app.use('/api/v1/rental',rentalout)
 
 
   // Express Error Middleware

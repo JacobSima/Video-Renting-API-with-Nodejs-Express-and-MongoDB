@@ -4,6 +4,7 @@ async function movieCreateValidation(obj={}){
      title:Joi.string().min(3).max(1024).required(),
      genre:Joi.string().min(3).max(1024).required(),
      numberInStock:Joi.number().min(0).max(10000).required(),
+     numberOutStock:Joi.number().min(0).max(10000),
      dailyRentalRate:Joi.number().min(0).max(10000).required()
  })
   try {
@@ -19,6 +20,7 @@ async function movieUpdateValidation(obj={}){
     title:Joi.string().min(3).max(1024),
     genre:Joi.string().min(3).max(1024),
     numberInStock:Joi.number().min(0).max(10000),
+    numberOutStock:Joi.number().min(0).max(10000),
     dailyRentalRate:Joi.number().min(0).max(10000)
   })
    try {

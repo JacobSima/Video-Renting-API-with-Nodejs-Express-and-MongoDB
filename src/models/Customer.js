@@ -52,7 +52,9 @@ const customerSchema =  new Schema({
     streetNumber : String,
     streetName : String
 
-  }
+  },
+  takenMovie:[{type:mongoose.Schema.ObjectId,ref:'RentalOut',default:[]}]
+
 },{timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }})
 
 // geolocation of customer using mongoose middleware
