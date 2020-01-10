@@ -6,7 +6,9 @@ async function customerCreateValidation(obj={}){
      address:Joi.string().min(10).max(1024).required(),
      membership:Joi.string().min(1).max(50),
      email:Joi.string().email().min(5).max(1024).required(),
-     takenMovie:Joi.array().items(Joi.string())
+     takenMovie:Joi.array().items(Joi.string()),
+     finedAmount:Joi.number().min(0).max(10000),
+     fined:Joi.boolean()
  })
   try {
     await schema.validateAsync(obj);
@@ -23,7 +25,9 @@ async function customerUpdateValidation(obj={}){
      address:Joi.string().min(10).max(1024),
      membership:Joi.string().min(1).max(50),
      email:Joi.string().email().min(5).max(1024),
-     takenMovie:Joi.array().items(Joi.string())
+     takenMovie:Joi.array().items(Joi.string()),
+     finedAmount:Joi.number().min(0).max(10000),
+     fined:Joi.boolean()
   })
    try {
      await schema.validateAsync(obj);

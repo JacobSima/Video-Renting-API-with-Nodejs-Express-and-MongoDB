@@ -1,0 +1,58 @@
+[
+  {
+      "_id": "5e176d5f27e0a153e1d38c35",
+      "customer": "5e10d84b67b42ce93b8afec3",
+      "movie": "5e10ccaaedc009e2f330a3a6",
+      "returnDate": "2020-01-09T22:00:00.000Z",
+      "dateOut": "2020-01-09T18:13:51.504Z"
+  },
+  {
+      "_id": "5e176d9227e0a153e1d38c36",
+      "customer": "5e10d73667b42ce93b8afec0",
+      "movie": "5e10cabea1250fd477a5267c",
+      "returnDate": "2020-01-09T22:00:00.000Z",
+      "dateOut": "2020-01-09T18:14:42.511Z"
+  },
+  {
+      "_id": "5e176dc027e0a153e1d38c37",
+      "customer": "5e10d8d367b42ce93b8afec5",
+      "movie": "5e10cc61edc009e2f330a3a5",
+      "returnDate": "2020-01-09T22:00:00.000Z",
+      "dateOut": "2020-01-09T18:15:28.398Z"
+  },
+  {
+      "_id": "5e176deb27e0a153e1d38c38",
+      "customer": "5e10d7e467b42ce93b8afec2",
+      "movie": "5e10cb9fedc009e2f330a3a1",
+      "returnDate": "2020-01-09T22:00:00.000Z",
+      "dateOut": "2020-01-09T18:16:11.302Z"
+  },
+  {
+      "_id": "5e176e1127e0a153e1d38c39",
+      "customer": "5e10d88a67b42ce93b8afec4",
+      "movie": "5e10cc28edc009e2f330a3a3",
+      "returnDate": "2020-01-09T22:00:00.000Z",
+      "dateOut": "2020-01-09T18:16:49.559Z"
+  },
+  {
+      "_id": "5e176e2427e0a153e1d38c3a",
+      "customer": "5e10d88a67b42ce93b8afec4",
+      "movie": "5e10cce2edc009e2f330a3a7",
+      "returnDate": "2020-01-09T22:00:00.000Z",
+      "dateOut": "2020-01-09T18:17:08.976Z"
+  },
+  {
+      "_id": "5e176e3f27e0a153e1d38c3b",
+      "customer": "5e10d7e467b42ce93b8afec2",
+      "movie": "5e10cce2edc009e2f330a3a7",
+      "returnDate": "2020-01-09T22:00:00.000Z",
+      "dateOut": "2020-01-09T18:17:35.254Z"
+  },
+  {
+      "_id": "5e176e5c27e0a153e1d38c3c",
+      "customer": "5e10d73667b42ce93b8afec0",
+      "movie": "5e10cce2edc009e2f330a3a7",
+      "returnDate": "2020-01-09T22:00:00.000Z",
+      "dateOut": "2020-01-09T18:18:04.068Z"
+  }
+]

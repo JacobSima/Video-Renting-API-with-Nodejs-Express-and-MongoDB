@@ -5,6 +5,7 @@ const Customer = require('./src/models/Customer')
 const Genre = require('./src/models/Genre')
 const Movie = require('./src/models/Movie')
 const User = require('./src/models/User')
+const RentalOut = require('./src/models/RentalOut')
 const path = require('path')
 const fs = require('fs')
 const mongoose = require('mongoose')
@@ -28,6 +29,7 @@ const customerData =JSON.parse(fs.readFileSync(`${__dirname}/_Data/customer.json
 const genreData =JSON.parse(fs.readFileSync(`${__dirname}/_Data/genre.json`,'utf-8')) 
 const movieData =JSON.parse(fs.readFileSync(`${__dirname}/_Data/movie.json`,'utf-8')) 
 const userData =JSON.parse(fs.readFileSync(`${__dirname}/_Data/user.json`,'utf-8')) 
+const rentalOutData =JSON.parse(fs.readFileSync(`${__dirname}/_Data/rentalout.json`,'utf-8')) 
 
 
 const importData = async function(){
@@ -36,6 +38,7 @@ const importData = async function(){
   await Genre.create(genreData)
   await Movie.create(movieData)
   await User.create(userData)
+  await rentalOutData.create(userData)
   console.log('Documents inserted...')
   process.exit()
  } catch (error) {
@@ -51,6 +54,7 @@ const dropData = async()=>{
   await Genre.deleteMany()
   await Movie.deleteMany()
   await User.deleteMany()
+  await rentalOutData.deleteMany()
   console.log('Documents deleted...')
   process.exit()
   } catch (error) {

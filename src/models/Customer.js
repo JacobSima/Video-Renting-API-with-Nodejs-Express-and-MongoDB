@@ -53,7 +53,16 @@ const customerSchema =  new Schema({
     streetName : String
 
   },
-  takenMovie:[{type:mongoose.Schema.ObjectId,ref:'RentalOut',default:[]}]
+  takenMovie:[{type:mongoose.Schema.ObjectId,ref:'RentalOut',default:[]}],
+  fined:{
+    type:Boolean,
+    default:false
+  },
+  finedAmount:{
+    type:Number,
+    default:0
+  }
+
 
 },{timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }})
 

@@ -5,7 +5,10 @@
       "name": "jeancy",
       "phone": "924-8372-7362",
       "email": "jeancy@gmail.com",
-      "address": "5 beulah road summerpride east london south africa"
+      "address": "5 beulah road summerpride east london south africa",
+      "takenMovie":[],
+      "fined":false,
+      "finedAmount":0
   },
   {
       "membership": "standard",
@@ -13,7 +16,10 @@
       "name": "jacob",
       "phone": "093-922-9382",
       "email": "jacob@gmail.com",
-      "address": "199 voortrekker road summerpride east london eastern cape south africa"
+      "address": "199 voortrekker road summerpride east london eastern cape south africa",
+      "takenMovie":[],
+      "fined":false,
+      "finedAmount":0
   },
   {
       "membership": "premium",
@@ -21,7 +27,10 @@
       "name": "billy",
       "phone": "372-393-9392",
       "email": "billy@gmail.com",
-      "address": "32 caledon street goodwood cape town western cape south africa"
+      "address": "32 caledon street goodwood cape town western cape south africa",
+      "takenMovie":[],
+      "fined":false,
+      "finedAmount":0
   },
   {
       "membership": "student",
@@ -29,7 +38,10 @@
       "name": "henry",
       "phone": "933-298-0928",
       "email": "henry@gmail.com",
-      "address": "5 kruger street bellville cape town western cape south africa"
+      "address": "5 kruger street bellville cape town western cape south africa",
+      "takenMovie":[],
+      "fined":false,
+      "finedAmount":0
   },
   {
 
@@ -38,6 +50,9 @@
       "name": "Tom",
       "phone": "933-298-0928",
       "email": "tom@gmail.com",
-      "address": "4 thompson road summerpride east london, eastern cape south africa"
+      "address": "4 thompson road summerpride east london, eastern cape south africa",
+      "takenMovie":[],
+      "fined":false,
+      "finedAmount":0
   }
 ]

@@ -25,7 +25,8 @@
   address
   location    - to be added via middleware from the address provided from the customer
   takenMovie  -[RentalOut,RentalOut] : Array of rental out movies
-
+  fined      - to be calculated base on maxTimeOut
+  finedAmount:
 
   #User
     name
@@ -46,10 +47,10 @@
 
 
 
-  #ReturnIn
+  #RentalIn
     RentalOut  - ObjectId
     dateIn     -date of the return      
-    fined      - to be calculated base on maxTimeOut
+                                   
 
 
 
