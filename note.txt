@@ -13,7 +13,9 @@
     numberInStock                       -required  -to be recalculate on RentalOut/In
     numberOutStock                       -default=0       -to be recalculate on RentalOut/In 
     dailyRentalRate                     -required  
-    description
+    description,
+    photo        - photo of the movie
+    triller      - video triller of the movie
 
 
   #Customer

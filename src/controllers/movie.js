@@ -5,6 +5,7 @@ const fs = require('fs')
 const path = require('path')
 const mongoose = require('mongoose')
 const Genre = require('../models/Genre')
+const crypto = require('crypto')
 const {movieCreateValidation,movieUpdateValidation} =  require('../validations/movie')
 
 
@@ -126,6 +127,69 @@ exports.updateMovie = asyncHandler(async(req,res,next)=>{
    res.status(200).json({sucess:true,data:movie})
 
   })
+
+
+//@ desc    Upload photo of the movie
+//@ route   Upload Photo /api/v1/movies/:id/uploadphoto
+//@ access  Private
+exports.uploadPhoto = asyncHandler(async(req,res,next)=>{
+  
+   const dest = path.join(__dirname,'..','..','public/movies',`${req.params.id}`)
+
+  // check if photo file was sent on the request
+  if(!req.files || Object.keys(req.files).length === 0 || !req.files.photo){
+    return next(new errorResponse('No photo was sent,check your form data',400))
+  }
+
+  const photo = req.files.photo
+
+  // Make sure that the file sent is only a photo type
+  if(!photo.mimetype.startsWith('image')){return next(new errorResponse (`Please upload an image file`,400))}
+  
+  photo.name = `${req.params.id}${path.parse(photo.name).ext}`
+
+  // upload the file
+  photo.mv(`${dest}/${photo.name}`)
+
+  // save name to DB
+  await Movie.findByIdAndUpdate(req.params.id,{photo:photo.name})
+  
+  res.status(200).json({sucess:true,data:photo.name})
+})
+
+
+
+
+//@ desc    Upload Triller of the movie
+//@ route   Upload Triller /api/v1/movies/:id/uploadtriller
+//@ access  Private
+exports.uploadTriller = asyncHandler(async(req,res,next)=>{
+  
+  const dest = path.join(__dirname,'..','..','public/movies',`${req.params.id}`)
+
+ // check if photo file was sent on the request
+ if(!req.files || Object.keys(req.files).length === 0 || !req.files.triller){
+   return next(new errorResponse('No Video was sent,check your form data',400))
+ }
+
+ const triller = req.files.triller
+
+ // Make sure that the file sent is only a triller type
+ if(!triller.mimetype.startsWith('video')){return next(new errorResponse (`Please upload an video file`,400))}
+ 
+ triller.name = `${req.params.id}${path.parse(triller.name).ext}`
+
+ // upload the file
+ triller.mv(`${dest}/${triller.name}`)
+
+ // save name to DB
+ await Movie.findByIdAndUpdate(req.params.id,{triller:triller.name})
+ 
+ res.status(200).json({sucess:true,data:triller.name})
+})
+
+
+
 
 
 //@ desc    Delete single movie

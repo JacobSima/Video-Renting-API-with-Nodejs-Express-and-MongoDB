@@ -5,6 +5,7 @@ const server = function(){
   const error = require('./middleware/error')
   const cors = require('cors')
   const path = require('path')
+  const fileupload = require('express-fileupload')
 
   // config .env
   const dotenv =  require('dotenv')
@@ -34,6 +35,9 @@ const server = function(){
   }
   // expressjson
   app.use(express.json())
+  app.use(express.urlencoded({extended: true}))
+
+  app.use(fileupload())
 
 
 

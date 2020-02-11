@@ -27,6 +27,14 @@ const movieSchema = new Schema({
   dailyRentalRate:{
     type:Number,
     required:[true,'Please add daily rental']
+  },
+  photo: {      
+    type: String,
+    default: 'no-photo.jpg'
+  },
+  triller:{
+    type:String,
+    default:'no-triller'
   }
 
 },{timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }})
