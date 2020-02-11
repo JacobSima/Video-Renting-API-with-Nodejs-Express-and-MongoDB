@@ -4,6 +4,7 @@ const server = function(){
   const morgan = require('morgan')
   const error = require('./middleware/error')
   const cors = require('cors')
+  const path = require('path')
 
   // config .env
   const dotenv =  require('dotenv')
@@ -24,6 +25,8 @@ const server = function(){
   const app = express()
 
   // Middlewares
+  // express static
+  app.use(express.static(path.join(__dirname,'public')))
   app.use(cors())
   // morgan for development
   if(process.env.NODE_ENV = 'development'){

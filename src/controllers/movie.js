@@ -1,6 +1,8 @@
 const asyncHandler = require('../utils/asynHandler')
 const errorResponse = require('../utils/errorResponse')
 const Movie = require('../models/Movie')
+const fs = require('fs')
+const path = require('path')
 const mongoose = require('mongoose')
 const Genre = require('../models/Genre')
 const {movieCreateValidation,movieUpdateValidation} =  require('../validations/movie')
@@ -89,7 +91,13 @@ exports.createMovie = asyncHandler(async(req,res,next)=>{
   const genre = await Genre.findById(req.body.genre) 
   if(!genre){return  next(new errorResponse(`Unable to create movie of the genre with id of: ${req.body.genre}; genre does not exist`,400))}
 
+  // create movie
   const movie = await Movie.create(req.body)
+  
+  //create movie file if one exists already then delete then create a new one
+  fs.mkdirSync(path.join(__dirname,'..','..','public/movies',`${movie._id}`),{ recursive: true },0o776)
+
+
   res.status(200).json({sucess:true,data:movie})
   })
 
@@ -127,8 +135,11 @@ exports.deleteMovie = asyncHandler(async(req,res,next)=>{
   if(!mongoose.Types.ObjectId.isValid(req.params.id)){
     return next(new errorResponse(`${req.params.id} is not a valid Object Id`,400))
   }
-
   await Movie.findByIdAndRemove(req.params.id)
+  
+  // Remove directory
+  fs.rmdirSync(path.join(__dirname,'..','..','public/movies',`${req.params.id}`),{ recursive: true })
+  
   res.status(200).json({sucess:true,data:{}})
   })
 
